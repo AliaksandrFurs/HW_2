@@ -1,5 +1,8 @@
 package com.it_academy.practice.junit_basics;
 
+
+import java.util.Scanner;
+
 public class Calculator {
 
     private int a;
@@ -38,10 +41,20 @@ public class Calculator {
                 return a + b;
             }
             case '/': {
-                return a / b;
+                try {
+                    return a / b;
+                } catch (ArithmeticException e){
+                    System.out.println("Divide by zero!");
+                }
             }
             case '*': {
                 return a * b;
+            }
+            case '^': {
+                return (float)Math.sqrt(a);
+            }
+            case '#': {
+                return (float)Math.pow(a,b);
             }
         }
     }
