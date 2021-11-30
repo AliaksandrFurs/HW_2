@@ -1,12 +1,22 @@
 package com.it_academy.practice.junit_basics;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Calculator {
 
     private int a;
     private int b;
+    private String strError;
+
+    public String getStrError() {
+        return strError;
+    }
+
+    public void setStrError(String strError) {
+        this.strError = strError;
+    }
 
     public Calculator(int a, int b) {
         this.a = a;
@@ -30,7 +40,7 @@ public class Calculator {
     }
 
     public float calculate(char operation) {
-        switch(operation) {
+        switch (operation) {
             default: {
                 return 0;
             }
@@ -43,21 +53,59 @@ public class Calculator {
             case '/': {
                 try {
                     return a / b;
-                } catch (ArithmeticException e){
+                } catch (ArithmeticException e) {
                     System.out.println("Divide by zero!");
+                    this.setStrError("Divide by zero!");
                 }
             }
             case '*': {
                 return a * b;
             }
             case '^': {
-                return (float)Math.sqrt(a);
+                return (int) Math.sqrt(a);
             }
             case '#': {
-                return (float)Math.pow(a,b);
+                return (int) Math.pow(a, b);
             }
         }
     }
 
+    public static float calcVar(char operation, int... numbers){
 
+        switch (operation) {
+            default: {
+                return 0;
+            }
+            case '-': {
+                int temp = numbers[0];
+                for (int i = 1; i < numbers.length ; i++) {
+                    temp -= numbers[i];
+                }
+                return temp;
+            }
+            case '+': {
+                int temp = 0;
+                return temp = Arrays.stream(numbers).sum();
+            }
+            case '/': {
+                try {
+                    int temp = numbers[0];
+                    for (int i = 1; i < numbers.length; i++) {
+                        temp /= numbers[i];
+                    }
+                    return temp;
+                }catch (ArithmeticException e){
+                    System.out.println("Divide by zero!");
+                }
+            }
+            case '*': {
+                int temp = numbers[0];
+                for (int i = 1; i < numbers.length; i++) {
+                    temp *= numbers[i];
+                }
+                return temp;
+            }
+        }
+    }
 }
+

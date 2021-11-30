@@ -6,9 +6,15 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        int n1=0;
+        int n2=0;
 
-        int n1 = Integer.parseInt(sc.next());
-        int n2 = Integer.parseInt(sc.next());
+        try {
+            n1 = Integer.parseInt(sc.next());
+            n2 = Integer.parseInt(sc.next());
+        } catch (NumberFormatException e){
+            System.out.println("Вы ввели не число");
+        }
 
         Calculator calculator = new Calculator(n1, n2);
 
@@ -18,5 +24,6 @@ public class Main {
         System.out.println("Multiply result: " + calculator.calculate('*'));
         System.out.println("SQRT result: " + calculator.calculate('^'));
         System.out.println("Round result: " + calculator.calculate('#'));
+        System.out.println("Various result: " + Calculator.calcVar('+', 10,2,0));
     }
 }
