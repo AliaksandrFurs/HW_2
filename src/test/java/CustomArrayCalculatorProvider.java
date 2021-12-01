@@ -11,7 +11,7 @@ public class CustomArrayCalculatorProvider implements ArgumentsProvider {
         return Stream.of(
             Arguments.of(new int [] {-1,0,1}, new int[] {-2,0,0,0}),
             Arguments.of(new int [] {Integer.MAX_VALUE,0, Integer.MIN_VALUE}, new int[] {-1,-1,0,0}),
-            Arguments.of(new int [] {Integer.MAX_VALUE-1,1, Integer.MIN_VALUE-1, -1}, new int[] {-1,-3,0,0})
+            Arguments.of(new int [] {Integer.MAX_VALUE-1,1, Integer.MIN_VALUE-1, -1}, new int[] {-1,-3,0,Integer.MAX_VALUE})
         );
     }
 }

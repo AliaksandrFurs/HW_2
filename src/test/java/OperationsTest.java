@@ -116,10 +116,6 @@ public class OperationsTest {
     void testCalcVarMultiply(int [] arguments, int [] arrayResults){
         assertEquals(arrayResults[3], Calculator.calcVar('*', arguments));
     }
-
-
-
-
 }
 
 
